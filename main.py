@@ -8,9 +8,9 @@ soup = BeautifulSoup(response.text, 'html.parser')
 # Locate the offscreen price element
 offscreen_price = soup.find('span', class_='aok-offscreen')
 
-# Get the price if the element is found
+# Get the price if the element is found and remove the '$' sign
 if offscreen_price:
-    price = offscreen_price.getText().strip()
+    price = offscreen_price.getText().strip().replace('$', '')
     print(f"Price: {price}")
 else:
     print("Price not found")
